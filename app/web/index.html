@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#002b84">
+<title>انكليزي السادس الاعدادي</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="appbar">
+  <div class="appbar-top">
+    <div class="brand">
+      <div class="logo">ا</div>
+      <div class="brand-text">
+        <h1>انكليزي السادس الاعدادي</h1>
+        <p>كتاب النشاط · الوحدات 1–8 · إعداد أ. علي معز الشلاه</p>
+      </div>
+    </div>
+    <button class="icon-btn" id="btnSearch" aria-label="بحث">
+      <svg viewBox="0 0 24 24"><path d="M21 21l-4.3-4.3M11 19a8 8 0 1 1 0-16 8 8 0 0 1 0 16z"/></svg>
+    </button>
+  </div>
+  <div class="searchbar" id="searchbar" hidden>
+    <input type="search" id="searchInput" placeholder="ابحث في جميع الوحدات والمواضيع…" autocomplete="off">
+    <button class="icon-btn" id="btnSearchClose" aria-label="إغلاق البحث">
+      <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></svg>
+    </button>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab active" data-view="ref">
+    <svg viewBox="0 0 24 24"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+    <span>المرجع</span>
+  </button>
+  <button class="tab" data-view="quiz">
+    <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+    <span>التمارين</span>
+  </button>
+  <button class="tab" data-view="cards">
+    <svg viewBox="0 0 24 24"><path d="M21 15V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10"/><path d="M12 3v18M7 8h2M7 12h2M7 16h2"/></svg>
+    <span>البطاقات</span>
+  </button>
+  <button class="tab" data-view="exam">
+    <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M9 15l2 2 4-4"/></svg>
+    <span>الامتحان</span>
+  </button>
+  <button class="tab" data-view="stats">
+    <svg viewBox="0 0 24 24"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg>
+    <span>إحصائي</span>
+  </button>
+</nav>
+
+<main id="main">
+
+  <!-- ============ المرجع ============ -->
+  <section class="view active" id="view-ref">
+    <div class="chips" id="unitChips"></div>
+    <div id="topicList" class="topic-list"></div>
+  </section>
+
+  <!-- ============ التمارين ============ -->
+  <section class="view" id="view-quiz">
+    <div id="quizSetup" class="panel"></div>
+    <div id="quizSession" class="panel" hidden></div>
+    <div id="quizResult" class="panel" hidden></div>
+  </section>
+
+  <!-- ============ البطاقات ============ -->
+  <section class="view" id="view-cards">
+    <div id="cardsSetup" class="panel"></div>
+    <div id="cardsSession" class="panel" hidden></div>
+  </section>
+
+  <!-- ============ الامتحان ============ -->
+  <section class="view" id="view-exam">
+    <div id="examSetup" class="panel"></div>
+    <div id="examSession" class="panel" hidden></div>
+    <div id="examResult" class="panel" hidden></div>
+  </section>
+
+  <!-- ============ إحصائي ============ -->
+  <section class="view" id="view-stats">
+    <div id="statsPanel" class="panel"></div>
+  </section>
+
+</main>
+
+<!-- شاشة تفاصيل الموضوع -->
+<div class="sheet" id="topicSheet" hidden>
+  <div class="sheet-backdrop" data-close="1"></div>
+  <div class="sheet-body" id="topicSheetBody"></div>
+</div>
+
+<div class="toast" id="toast" hidden></div>
+
+<script src="data/app.js"></script>
+<script src="data/exam.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+# أدوات وملفات بناء ضخمة (GitHub لا يقبلها)
+.work/
+.tools/
+outputs/
+.manus/
+.cloud-attachments/
+__pycache__/
+node_modules/
+
+# سر التوقيع — لا يُرفع أبداً
+app/release.jks
+*.jks
+*.keystore
+
+# وسائط وملفات ثقيلة
+*.zip
+*.msi
+*.mp4
+*.docx
+app/tools/lib/
+
+# نسخ ويب قديمة (النسخة الحالية هي app/english2027)
+app/web_deepseek/
+app/web_english/
+app/web_passages/
+app/build/
+
+# ملفات APK القديمة (تُرفع النسخة الحالية فقط)
+*.apk
+!انكليزي-السادس-الاعدادي-2027-v1.13.0.apk
+!app/dist/*.apk
+
+# ملفات PDF والصور المصدرية (محتوى الوزارة — يُرفع نصياً لا كنسخ مصوّرة)
+*.pdf
+*.jpg
+*.jpeg
