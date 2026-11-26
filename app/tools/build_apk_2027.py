@@ -24,8 +24,9 @@ TARGET_SDK = 34
 VERSION_CODE = 13
 VERSION_NAME = '1.13.0'
 OUT_NAME = 'انكليزي-السادس-الاعدادي-2027-v1.13.0.apk'
-KS_PASS = 'grammar6'
-KS_ALIAS = 'grammar'
+# كلمة مرور مفتاح التوقيع تُقرأ من البيئة فقط — لا تُكتب في المستودع
+KS_PASS = os.environ.get('E2027_KS_PASS', '')
+KS_ALIAS = os.environ.get('E2027_KS_ALIAS', 'grammar')
 
 SDK_CANDIDATES = [
     os.environ.get('ANDROID_HOME'),
@@ -168,6 +169,8 @@ def main():
     # 8) sign with the existing release key (do not create a new one)
     if not os.path.isfile(KEYSTORE):
         die('release.jks not found — refusing to create a new key')
+    if not KS_PASS:
+        die('set E2027_KS_PASS to the release.jks password, e.g. E2027_KS_PASS=... py app/tools/build_apk_2027.py')
     ks_tmp = os.path.join(TMP, 'release.jks')
     shutil.copyfile(KEYSTORE, ks_tmp)
     signed = os.path.join(TMP, 'app-signed.apk')
