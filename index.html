@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ALI MU'IZ ENGLISH 2027 · v1.12.2</title>
+<title>ALI MU'IZ ENGLISH 2027 · v1.12.9</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--nv:#0e2235;--tl:#1a8a7e;--tllt:#e6f5f3;--tm:#2ba99a;--ink:#1a2e3b;--mu:#6b7f8e;--paper:#f3f6f9;--wh:#fff;--bd:#dde5eb;--gd:#c89b3c;--r:14px;--ok:#1e7a4a;--no:#b13a2c}
@@ -2519,46 +2519,54 @@ function ixNorm(v){return String(v??'').toLowerCase().normalize('NFD').replace(/
 function ixHaystack(parts){return ixNorm(parts.filter(Boolean).map(x=>typeof x==='string'?x:JSON.stringify(x)).join(' '));}
 function ixSearchIndex(){
  const rows=[];
- const add=(kind,title,desc,extra,unit,where,target,parts)=>rows.push({kind,title:String(title||'محتوى تعليمي'),desc:String(desc||''),extra:String(extra||''),unit,where,target,hay:ixHaystack([title,desc,extra,...(parts||[])])});
- // Unit lesson titles (Arabic and English).
- UNITS_ALL.forEach(u=>(u.lessons||[]).forEach(l=>add('درس',l.t,l.ar||'',`صفحة ${l.p||'—'}`,u.n,`الوحدة ${u.n} · الدروس`,'units',[u.ar])));
- // Writing topics and full bilingual titles/prompts.
- UNITS_ALL.forEach(u=>(u.writing||[]).forEach(w=>{const arTitle=String(w.ar||'').split(/\n/)[0];add('إنشاء',`${w.title||'موضوع إنشاء'}${arTitle?' — '+arTitle:''}`,w.ar||w.prompt||'',w.prompt||'',u.n,`الوحدة ${u.n} · الإنشاءات`,'units',[w.model,u.ar]);}));
- // Grammar topics, including labels and all explanation text.
- Object.entries(GR||{}).forEach(([id,g])=>add('قاعدة نحوية',g.ar||g.t,g.rule||g.tr||'',g.t||g.en||'',g.u,`الوحدة ${g.u||'—'} · القواعد`,'grammar',[g.en,g.tr,g.ruleEn,id]));
- // Activity-book exercise headings and prompts: include lesson labels and exercise text,
- // but exclude answer fields so a search does not reveal answer keys as snippets.
- UNITS_ALL.forEach(u=>{
-   (u.exercises||[]).forEach((e,i)=>add('تمرين',e.les||e.h||`تمرين ${i+1}`,e.txt||e.text||'',`صفحة ${e.p||e.page||'—'} · ${e.letter||e.lbl||''}`,u.n,`الوحدة ${u.n} · التمارين`,'exercises',[e.instr,e.instrAr,e.title,u.ar]));
-   (u.vocab||[]).forEach(group=>(group.words||[]).forEach(v=>add('مفردة',v.w,v.m||'',group.l||'المفردات',u.n,`الوحدة ${u.n} · المفردات`,'vocabulary',[u.ar])));
-   (u.meanings||[]).forEach((v,i)=>add('معاني وتمارين',v.lbl||v.les||`تمرين ${i+1}`,v.txt||'',`صفحة ${v.p||'—'}`,u.n,`الوحدة ${u.n} · المعاني`,'units',[u.ar]));
- });
- // Reading/story passages: index text fields with reading-related labels and retain nearby context.
+ // Writing topics / essays, indexed by Arabic title and translated prompt.
+ UNITS_ALL.forEach(u=>(u.writing||[]).forEach(w=>rows.push({kind:'إنشاء',title:w.title||'موضوع إنشاء',desc:w.ar||w.prompt||'',extra:w.prompt||'',unit:u.n,where:`الوحدة ${u.n} · الإنشاءات`,target:'units',hay:ixHaystack([w.title,w.ar,w.prompt,w.model,u.ar])})));
+ // Grammar titles and Arabic explanations.
+ Object.entries(GR).forEach(([id,g])=>rows.push({kind:'قاعدة نحوية',title:g.ar||g.t,desc:g.rule||g.tr||'',extra:g.t,unit:g.u,where:`الوحدة ${g.u} · القواعد`,target:'grammar',hay:ixHaystack([g.ar,g.t,g.rule,g.en,g.tr])}));
+ // Reading/story passages and unit descriptions: inspect named text fields only, avoiding exercise answer keys.
  UNITS_ALL.forEach(u=>{
    const seen=new Set();
-   function walk(obj,path,depth){if(!obj||typeof obj!=='object'||depth>5)return;
+   function walk(obj,path,depth){if(!obj||typeof obj!=='object'||depth>4)return;
      if(Array.isArray(obj)){obj.forEach((v,i)=>walk(v,path,depth+1));return;}
      Object.entries(obj).forEach(([k,v])=>{
        const key=(path+' '+k).toLowerCase();
        if(typeof v==='string' && /(reading|passage|comprehension|قطعه|القطعة|نص القراءة|reading text)/i.test(key) && v.length>45){
-         const sig=ixNorm(v).slice(0,180);if(!seen.has(sig)){seen.add(sig);add('قطعة / نص قراءة',k.replace(/[_-]/g,' '),v,'',u.n,`الوحدة ${u.n}`,'units',[u.ar]);}}
-       else if(v&&typeof v==='object' && !/(answers|keys)/i.test(k))walk(v,path+' '+k,depth+1);
+         const sig=ixNorm(v).slice(0,180);if(!seen.has(sig)){seen.add(sig);rows.push({kind:'قطعة / نص قراءة',title:k.replace(/[_-]/g,' '),desc:v,extra:'',unit:u.n,where:`الوحدة ${u.n}`,target:'units',hay:ixHaystack([k,v,u.ar])});}}
+       else if(v&&typeof v==='object' && !/(exercises|answers|keys|vocab|meanings)/i.test(k))walk(v,path+' '+k,depth+1);
      });
    }
    walk(u,'',0);
  });
- // Search the detailed grammar reference as well (topic names, bilingual rules and book exercise headings).
- if(typeof GRAMMAR_REFERENCE_111!=='undefined' && GRAMMAR_REFERENCE_111.topics){
-   GRAMMAR_REFERENCE_111.topics.forEach(t=>{
-     const rule=(t.rule||[]).map(x=>x.ar||x.en||'').join(' · ');
-     add('قاعدة نحوية',t.ar||t.en,rule,t.en||'',t.unit,`${t.unitAr||'القواعد'} · الملزمة`,'grammar',[t.ruleEn,(t.tips||[]).join(' ')]);
-     (t.exercises||[]).forEach((e,i)=>add('تمرين قواعد',`${t.ar||t.en} · تمرين ${i+1}`,e.instrAr||e.instrEn||'',e.text||'',t.unit,`${t.unitAr||'القواعد'} · صفحة ${e.page||'—'}`,'grammar',[e.textAr]));
+ // Literature: character profiles and section events.
+ (PP_CHARS||[]).forEach(x=>rows.push({kind:'شخصية في الرواية',title:x.name,desc:[x.role,...(x.facts||[])].join(' · '),extra:x.src,where:'Pride and Prejudice',target:'literature',hay:ixHaystack([x.name,x.role,x.facts,x.src])}));
+ (AY_CHARS||[]).forEach(x=>rows.push({kind:'شخصية في المسرحية',title:x.name,desc:[x.role,...(x.facts||[])].join(' · '),extra:x.src,where:'As You Like It',target:'literature',hay:ixHaystack([x.name,x.role,x.facts,x.src])}));
+ (PP_EVENTS||[]).concat(AY_EVENTS||[]).forEach(x=>rows.push({kind:'أحداث الأدب',title:x.t,desc:x.d,extra:x.src,where:'الأدب',target:'literature',hay:ixHaystack([x.t,x.d,x.src])}));
+ // Detailed grammar reference (26 topics): the previous index omitted this main source.
+ const grRef=window.GRAMMAR_REFERENCE_111;
+ if(grRef && Array.isArray(grRef.topics)){
+   const aliases={
+     10:['expectation','التوقع','should expectation'],
+     22:['passive voice','passive forms','المبني للمجهول','المبني للمجهول passive voice']
+   };
+   grRef.topics.forEach(t=>{
+     const alias=aliases[t.id]||[];
+     const ruleText=(t.rule||[]).map(x=>typeof x==='string'?x:[x.ar,x.en].filter(Boolean).join(' ')).join(' ');
+     rows.push({kind:'قاعدة نحوية',title:`${t.ar} — ${t.en}`,desc:ruleText||t.ruleEn||'',extra:`الوحدة ${t.unit} · ${t.unitAr}`,unit:t.unit,where:`${t.unitAr} · القواعد`,target:'grammar',hay:ixHaystack([t.ar,t.en,t.ruleEn,ruleText,t.tips,alias])});
+     (t.exercises||[]).forEach((e,i)=>{
+       const txt=[e.instrAr,e.instrEn,e.text,e.textAr,e.answer,e.prompt,e.title].filter(Boolean).join(' ');
+       if(txt) rows.push({kind:'تمرين قواعد',title:`${t.ar} — تمرين ${i+1}`,desc:txt,extra:`${t.unitAr} · ${t.en}`,unit:t.unit,where:`${t.unitAr} · القواعد`,target:'grammar',hay:ixHaystack([t.ar,t.en,txt,alias])});
+     });
+     (t.cards||[]).forEach((c,i)=>{
+       const txt=[c.title,c.text,c.textAr,c.answer,c.instr,c.instrAr,c.rule].filter(Boolean).join(' ');
+       if(txt) rows.push({kind:'بطاقة قواعد',title:`${t.ar} — ${c.title||'تمرين '+(i+1)}`,desc:txt,extra:`${t.unitAr} · ${t.en}`,unit:t.unit,where:`${t.unitAr} · القواعد`,target:'grammar',hay:ixHaystack([t.ar,t.en,txt,alias])});
+     });
    });
  }
- // Literature: character profiles and section events.
- (PP_CHARS||[]).forEach(x=>add('شخصية في الرواية',x.name,[x.role,...(x.facts||[])].join(' · '),x.src,'','Pride and Prejudice','literature'));
- (AY_CHARS||[]).forEach(x=>add('شخصية في المسرحية',x.name,[x.role,...(x.facts||[])].join(' · '),x.src,'','As You Like It','literature'));
- (PP_EVENTS||[]).concat(AY_EVENTS||[]).forEach(x=>add('أحداث الأدب',x.t,x.d,x.src,'','الأدب','literature'));
+ // Index exercise-bank headings and instructions as well, without exposing answer keys as titles.
+ UNITS_ALL.forEach(u=>(u.exercises||[]).forEach((e,i)=>{
+   const txt=[e.les,e.h,e.txt].filter(Boolean).join(' ');
+   if(txt) rows.push({kind:'تمرين كتاب النشاط',title:e.les||e.h||`تمرين ${i+1}`,desc:txt,extra:`الوحدة ${u.n} · ${e.p||e.page||''}`,unit:u.n,where:`الوحدة ${u.n} · التمارين`,target:'units',hay:ixHaystack([txt,u.ar])});
+ }));
  return rows;
 }
 let IX_SEARCH_CACHE=null;
@@ -2568,7 +2576,7 @@ function runSmartSearch(){
  const out=document.getElementById('smartSearchResults'),count=document.getElementById('smartSearchCount');
  if(!tokens.length){count.textContent='اكتب كلمة أو أكثر باللغة العربية.';out.innerHTML='<div class="empty">ابدأ بكتابة موضوع البحث.</div>';return;}
  IX_SEARCH_CACHE=IX_SEARCH_CACHE||ixSearchIndex();
- let found=IX_SEARCH_CACHE.map(r=>{const hits=tokens.filter(t=>{const variants=[t];if(t.startsWith('ال')&&t.length>3)variants.push(t.slice(2));if(t.endsWith('s')&&t.length>3)variants.push(t.slice(0,-1));return variants.some(v=>/[a-z]/i.test(v)?new RegExp('(^|[^a-z])'+v.replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+'([^a-z]|$)','i').test(r.hay):r.hay.includes(v));}).length;const titleNorm=ixNorm(r.title);const titleHit=tokens.some(t=>{const variants=[t];if(t.startsWith('ال')&&t.length>3)variants.push(t.slice(2));if(t.endsWith('s')&&t.length>3)variants.push(t.slice(0,-1));return variants.some(v=>titleNorm.includes(v));});return {...r,score:hits/tokens.length+(titleHit?0.35:0)};}).filter(r=>r.score>0).sort((a,b)=>b.score-a.score||a.title.localeCompare(b.title,'ar')).slice(0,80);
+ let found=IX_SEARCH_CACHE.map(r=>{const hits=tokens.filter(t=>r.hay.includes(t)).length;return {...r,score:hits/tokens.length};}).filter(r=>r.score>0).sort((a,b)=>b.score-a.score||a.title.localeCompare(b.title,'ar')).slice(0,80);
  // Exact all-token matches rank first; partial matches are retained to help students find related topics.
  count.textContent=`عُثر على ${found.length} نتيجة مرتبطة ببحثك «${raw}»`;
  if(!found.length){out.innerHTML='<div class="empty">لم نعثر على نتيجة مطابقة. جرّب كلمة أقصر أو مرادفاً عربياً.</div>';return;}
