@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>ALI MU'IZ ENGLISH 2027 · v1.12.2</title>
+<title>ALI MU'IZ ENGLISH 2027 · v1.12.10</title>
 <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
 <style>
 :root{--nv:#0e2235;--tl:#1a8a7e;--tllt:#e6f5f3;--tm:#2ba99a;--ink:#1a2e3b;--mu:#6b7f8e;--paper:#f3f6f9;--wh:#fff;--bd:#dde5eb;--gd:#c89b3c;--r:14px;--ok:#1e7a4a;--no:#b13a2c}
@@ -2514,7 +2514,7 @@ function _renderUnit(){
   uc.innerHTML=h;
 }
 
-// ── SMART ARABIC SEARCH v1.12.6 ──
+// ── SMART ARABIC SEARCH v1.12.10 ──
 function ixNorm(v){return String(v??'').toLowerCase().normalize('NFD').replace(/[\u064B-\u065F\u0670\u0640]/g,'').replace(/[أإآٱ]/g,'ا').replace(/ى/g,'ي').replace(/ة/g,'ه').replace(/[ًٌٍَُِّْ]/g,'').replace(/[ـ.,!?؛،:()\[\]{}"']/g,' ').replace(/\s+/g,' ').trim();}
 function ixHaystack(parts){return ixNorm(parts.filter(Boolean).map(x=>typeof x==='string'?x:JSON.stringify(x)).join(' '));}
 function ixSearchIndex(){
