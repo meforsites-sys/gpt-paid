@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Builds a signed APK for ALI MU'IZ ENGLISH 2027 (v1.12.10) without Gradle.
+"""Builds a signed APK for ALI MU'IZ ENGLISH 2027 (v1.12.11) without Gradle.
 
 Uses the Android SDK build-tools directly: aapt2 -> javac -> d8 -> zipalign ->
 apksigner, with the existing app/release.jks key (same key as the earlier apps).
@@ -21,9 +21,9 @@ KEYSTORE = os.path.join(APP, 'release.jks')
 PKG = 'com.alshallah.english2027'
 MIN_SDK = 24
 TARGET_SDK = 34
-VERSION_CODE = 15
-VERSION_NAME = '1.12.10'
-OUT_NAME = 'انكليزي-السادس-الاعدادي-2027-v1.12.10.apk'
+VERSION_CODE = 16
+VERSION_NAME = '1.12.11'
+OUT_NAME = 'انكليزي-السادس-الاعدادي-2027-v1.12.11.apk'
 # كلمة مرور مفتاح التوقيع تُقرأ من البيئة فقط — لا تُكتب في المستودع
 KS_PASS = os.environ.get('E2027_KS_PASS', '')
 KS_ALIAS = os.environ.get('E2027_KS_ALIAS', 'grammar')
