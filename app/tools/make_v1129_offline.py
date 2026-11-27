@@ -46,8 +46,7 @@ def die(msg):
 
 
 def css_block():
-    parts = ['/* offline-fonts-v1129 — Tajawal + Poppins embedded, no network */',
-             '<style>']
+    parts = ['<style>']
     for family, name, mime, weight in FACES:
         path = os.path.join(FONTS, name)
         if not os.path.isfile(path):

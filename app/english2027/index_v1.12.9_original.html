@@ -859,6 +859,334 @@ footer small{color:#7fa2a9}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
 }
 </style>
+
+<style id="ui-2027-v3">
+/* ═══════════════════════════════════════════════════════════════
+   v3.0 · الرئيسية البارزة · الوضع الليلي · التبويبات · روابط المواضيع · الإنشاءات
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── زر الرئيسية البارز + مفتاح الوضع الليلي ── */
+.bar .home-tab{
+  display:inline-flex;align-items:center;gap:8px;height:44px;padding:0 20px;border-radius:999px;
+  font:800 14.5px 'Tajawal',sans-serif;color:#04212a;cursor:pointer;white-space:nowrap;
+  background:linear-gradient(135deg,#8ff4e6,#2fd0bd 58%,#12a594);
+  border:1px solid rgba(255,255,255,.5);
+  box-shadow:0 14px 30px -14px #2fd0bdcc,inset 0 1px 0 #ffffff99;
+  transition:transform .22s cubic-bezier(.22,1,.36,1),box-shadow .22s,filter .22s;
+}
+.bar .home-tab:hover{transform:translateY(-2px);filter:brightness(1.06);box-shadow:0 18px 36px -14px #2fd0bde6}
+.bar .home-tab:active{transform:translateY(0) scale(.97)}
+.bar .home-tab .ht-ico{font-size:17px;line-height:1}
+.bar .theme-tt{display:grid;place-items:center;width:44px;height:44px;border-radius:999px;font-size:16px;padding:0}
+.bar .theme-tt:hover{transform:rotate(-14deg) scale(1.07)}
+@media(max-width:620px){
+  .bar .home-tab{height:40px;padding:0 14px;font-size:13px;gap:6px}
+  .bar .home-tab .ht-ico{font-size:15px}
+  .bar .theme-tt{width:40px;height:40px;font-size:15px}
+}
+@media(max-width:430px){
+  .bar .bar-t small{display:none}
+  .bar .home-tab{padding:0 12px}
+}
+
+/* ── تبويبات أكثر انسيابية ── */
+.utabs{gap:10px;padding:4px 2px 14px}
+.utab{border-radius:18px;position:relative;overflow:hidden;padding:11px 20px}
+.utab::after{content:"";position:absolute;inset:auto 0 0;height:3px;background:linear-gradient(90deg,#2fd0bd,#12a594);opacity:0;transition:opacity .26s}
+.utab.on::after{opacity:1}
+.utab.on{transform:translateY(-2px);box-shadow:0 20px 38px -22px #0a2b33}
+.subtabs{overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding-bottom:4px}
+.subtabs::-webkit-scrollbar{height:0}
+.stab{flex:0 0 auto;font-weight:800;letter-spacing:.1px;min-height:42px;display:inline-flex;align-items:center;gap:7px}
+.stab.on{background:linear-gradient(135deg,#0d4a52,#12a594)!important;border-color:transparent!important;color:#fff!important;box-shadow:0 16px 30px -18px #0a2b33,inset 0 1px 0 #ffffff2e}
+.stab:active{transform:scale(.98)}
+.stab .cbadge{transition:transform .2s}
+.stab:hover .cbadge{transform:scale(1.06)}
+
+/* ── روابط مواضيع الوحدة أسفل الدروس ── */
+.lt-topics{margin-top:18px;background:linear-gradient(135deg,#eefaf7,#f8fcfb);border:1px solid #d8ece8;border-radius:18px;padding:16px 18px}
+.ltt-head{font:800 14.5px 'Tajawal';color:#0d5f5a;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.ltt-grp{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-top:1px dashed #d6e8e5}
+.ltt-grp:first-of-type{border-top:0;padding-top:2px}
+.ltt-tag{flex:0 0 auto;font:800 12px 'Tajawal';color:#0d6f68;background:#fff;border:1px solid #d9ece8;border-radius:999px;padding:4px 11px}
+.ltt-links{display:flex;flex-wrap:wrap;gap:7px;flex:1;min-width:0}
+.ltl{font:700 13px 'Tajawal';color:#0f4e52;background:#fff;border:1px solid #d5e7e4;border-radius:10px;padding:7px 13px;cursor:pointer;transition:.2s;text-align:right;line-height:1.6}
+.ltl:hover{background:#0f7a72;border-color:#0f7a72;color:#fff;transform:translateY(-1px);box-shadow:0 9px 18px -10px #0f7a72}
+.ltl:active{transform:translateY(0) scale(.98)}
+@media(max-width:560px){.lt-topics{padding:14px}.ltt-grp{flex-direction:column;gap:7px}.ltt-tag{align-self:flex-start}.ltl{font-size:12.5px;padding:6px 11px}}
+
+/* ── بطاقة القاعدة من الملزمة (اسم + شرح نصي كامل) ── */
+.grx-rule p{margin:0 0 9px}
+.grx-rule p:last-child{margin-bottom:0}
+.grx-rule .grx-en{font-family:'Poppins',Arial,sans-serif;font-size:14.5px;line-height:1.95;color:#41626c;background:#f5f9fa;border:1px solid #e6eff0;border-radius:10px;padding:8px 12px}
+.grx-rule code{background:#e6f5f2;color:#0b5f58;border-radius:6px;padding:1px 6px;font-family:'Poppins',Arial;font-size:.93em;white-space:normal}
+.grx-tips{margin-top:13px;background:#fffaea;border:1px solid #efe0b3;border-radius:12px;padding:11px 14px}
+.grx-tips b{display:block;font:800 13px 'Tajawal';color:#8a6a12;margin-bottom:5px}
+.grx-tips ul{margin:0;padding-inline-start:18px}
+.grx-tips li{font:600 14px/1.95 'Tajawal';color:#65511c;margin-bottom:3px}
+.grx-enbox{margin-top:12px;border:1px solid #dde9ec;border-radius:12px;background:#f7fafb;padding:9px 13px}
+.grx-enbox>summary{font:800 12.5px 'Poppins';color:#35606a;cursor:pointer}
+.grx-enbox>div{margin-top:8px;font:500 14px/1.9 'Poppins';color:#41626c}
+.grx summary b{line-height:1.55}
+.gc-flash{animation:gcflash 1.7s ease}
+@keyframes gcflash{0%{box-shadow:0 0 0 0 #12a59499}26%{box-shadow:0 0 0 5px #12a59455,0 20px 44px -22px #0a2b33}100%{box-shadow:var(--sh-sm)}}
+.exwrap{display:block}
+.exwrap:target{scroll-margin-top:90px}
+
+/* ── بطاقة الإنشاء الكاملة ── */
+.wcard{border:1px solid #dbe9e6!important;border-radius:20px!important;background:#fff!important;box-shadow:var(--sh-sm);margin:14px 0;overflow:hidden}
+.wcard-head{display:flex;align-items:center;gap:12px;padding:15px 17px;background:linear-gradient(135deg,#f1faf8,#fbfdfd);border-bottom:1px solid #e7f1ef}
+.wcard-ico{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:var(--grad);font-size:19px;flex:0 0 auto}
+.wcard-hw{flex:1;min-width:0}
+.wcard-h{display:block;font:800 17px 'Tajawal';color:#0a2b33;line-height:1.5}
+.wcard-meta{display:block;font:500 11.5px 'Poppins';color:#6d8b8f;margin-top:3px;letter-spacing:.2px}
+.wcard-no{font:800 13px 'Poppins';color:#0d6f68;background:#e8f6f3;border-radius:9px;padding:5px 10px;flex:0 0 auto}
+.wcard-body{padding:16px 17px}
+.wcard-prompt{background:#f4f9f8;border:1px solid #e7f0ef;border-radius:13px;padding:12px 14px;margin-bottom:15px}
+.wcard-prompt b{display:block;font:800 12.5px 'Tajawal';color:#0d6f68;margin-bottom:5px}
+.wcard-prompt p{font:600 14.5px/1.95 'Tajawal';color:#33535c;margin:0}
+.wcard-lab{display:block;font:800 12.5px 'Tajawal';color:#5e7a7e;margin:0 0 7px}
+.wcard .ix-writing{width:100%;min-height:104px;border:1.6px solid #d7e6e3;border-radius:13px;padding:12px 14px;font:600 15px/1.95 'Tajawal';background:#fbfdfc;resize:vertical;box-sizing:border-box}
+.wcard .ix-writing:focus{outline:none;border-color:var(--tm);box-shadow:0 0 0 4px #12a5941f;background:#fff}
+.wcard-sol,.wcard-tr{margin-top:17px}
+.wcard-solhead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.wcard-solhead b{font:800 14px 'Tajawal';color:#0d6f68}
+.wcard-words{font:600 11.5px 'Poppins';color:#8aa9a8;direction:ltr}
+.wcard-model{margin:0;background:linear-gradient(135deg,#f2faf8,#fafdfc);border:1px solid #d7ebe7;border-radius:13px;padding:15px 16px;font:500 15px/1.95 'Poppins',Arial,sans-serif;color:#123a44;white-space:pre-wrap;direction:ltr;text-align:left;overflow-wrap:anywhere}
+.wcard-trt{background:#f7fafb;border:1px solid #e3edf0;border-radius:13px;padding:13px 15px;font:600 15.5px/2 'Tajawal';color:#2c4a54}
+@media(max-width:560px){
+  .wcard-head{padding:13px 14px;gap:10px}
+  .wcard-ico{width:38px;height:38px;font-size:17px}
+  .wcard-h{font-size:15.5px}
+  .wcard-body{padding:13px 14px}
+  .wcard-model{font-size:14px;padding:12px 13px}
+  .wcard-trt{font-size:14.5px}
+}
+
+/* ── الوضع الليلي ── */
+html[data-theme="dark"]{
+  --nv:#eafcf9;--tl:#4fd8c6;--tllt:#123a3f;--tm:#2fd0bd;
+  --ink:#dbeae9;--mu:#98b6ba;--paper:#08161b;--wh:#0e2228;--bd:#1d383e;
+  --ok:#43d6a1;--no:#ff8d7d;
+  --grad:linear-gradient(135deg,#0c3a42 0%,#106a68 55%,#17b1a0 100%);
+  --grad-soft:linear-gradient(135deg,#0f2c31,#0b2025);
+  --sh-sm:0 1px 2px rgba(0,0,0,.5),0 6px 18px -10px rgba(0,0,0,.7);
+  --sh-md:0 2px 6px rgba(0,0,0,.5),0 20px 44px -22px rgba(0,0,0,.85);
+}
+html[data-theme="dark"] body{
+  background:radial-gradient(1100px 560px at 102% -8%,#0d3a3a 0%,transparent 62%),
+             radial-gradient(900px 520px at -8% 28%,#0b2730 0%,transparent 58%),
+             var(--paper);
+  color:var(--ink);
+}
+html[data-theme="dark"] .panel,
+html[data-theme="dark"] .utab,
+html[data-theme="dark"] .stab,
+html[data-theme="dark"] .ltab2,
+html[data-theme="dark"] .lit-subtab,
+html[data-theme="dark"] .lit-work-card,
+html[data-theme="dark"] .ix-search-wrap,
+html[data-theme="dark"] .ix-search-card,
+html[data-theme="dark"] .ix-search-chips button,
+html[data-theme="dark"] .version-pill,
+html[data-theme="dark"] .back,
+html[data-theme="dark"] .wcard,
+html[data-theme="dark"] .ltt-tag,
+html[data-theme="dark"] .ltl,
+html[data-theme="dark"] .g11-tabs button,
+html[data-theme="dark"] .g11-navbtn.alt,
+html[data-theme="dark"] .g11-btn.alt,
+html[data-theme="dark"] .ix-lit-answer{
+  background:#0f262c!important;border-color:var(--bd)!important;color:var(--ink);
+}
+html[data-theme="dark"] .hgrid .card{background:linear-gradient(180deg,#102a30,#0c2026)!important;border-color:#1a353b!important}
+html[data-theme="dark"] .hgrid .card b{color:#eafcf9}
+html[data-theme="dark"] .hgrid .c-ico{background:linear-gradient(135deg,#123840,#0e2a30);border-color:#1e444a;box-shadow:none}
+html[data-theme="dark"] .bc{background:#12303a;color:#9fc3c7}
+html[data-theme="dark"] .pnav{border-bottom-color:#173137}
+html[data-theme="dark"] .pt{color:#f0fbf9}
+html[data-theme="dark"] .ps{color:#a3c3c7}
+html[data-theme="dark"] .gc summary,
+html[data-theme="dark"] .g11-topic>summary{background:#0f262c}
+html[data-theme="dark"] .gc summary b{color:#eafcf9}
+html[data-theme="dark"] .gc[open] summary{background:#12343a!important}
+html[data-theme="dark"] .g-art{background:#122b32;color:#d8eeec}
+html[data-theme="dark"] .g-rulebox{background:linear-gradient(135deg,#10292f,#0d2228)!important}
+html[data-theme="dark"] .g-ruletext{color:#dceceb}
+html[data-theme="dark"] .grx-rule .grx-en{background:#12303a;border-color:#1d4147;color:#a9cdd1}
+html[data-theme="dark"] .grx-rule code{background:#15393f;color:#8ff0e2}
+html[data-theme="dark"] .grx-tips{background:#2a2413;border-color:#4a3d1c}
+html[data-theme="dark"] .grx-tips b{color:#f2dfa0}
+html[data-theme="dark"] .grx-tips li{color:#e8d9a8}
+html[data-theme="dark"] .grx-enbox{background:#102a31;border-color:#1c4046}
+html[data-theme="dark"] .grx-enbox>summary{color:#9ed4d8}
+html[data-theme="dark"] .grx-enbox>div{color:#bcd9dc}
+html[data-theme="dark"] .g-en{background:#122c33!important;color:#c9e3e5}
+html[data-theme="dark"] .g-badge{background:#12343a;color:#8ff0e2;box-shadow:inset 0 0 0 1px #1e4b4b}
+html[data-theme="dark"] .g-meta,
+html[data-theme="dark"] .g-src{color:#8fb0b4}
+html[data-theme="dark"] .ltbl{background:#0f262c}
+html[data-theme="dark"] .ltbl th{background:linear-gradient(135deg,#0c3a42,#12a594);color:#eafffb}
+html[data-theme="dark"] .ltbl td{background:#0f262c;color:#dbeae9;border-color:#1a333a}
+html[data-theme="dark"] .lesson-title-en{color:#e3f7f4}
+html[data-theme="dark"] .lesson-title-ar{color:#93b5b9}
+html[data-theme="dark"] .lesson-page{background:#12343a;color:#8ff0e2}
+html[data-theme="dark"] .unit-symbol{background:linear-gradient(145deg,#12333a,#0e252b);box-shadow:inset 0 0 0 1px #1c4147}
+html[data-theme="dark"] .uc-title{color:#eafcf9}
+html[data-theme="dark"] .uc-sub{color:#a3c3c7}
+html[data-theme="dark"] .lt-topics{background:linear-gradient(135deg,#0f2b31,#0c2026);border-color:#1c4046}
+html[data-theme="dark"] .ltt-head{color:#8ff0e2}
+html[data-theme="dark"] .ltt-grp{border-top-color:#1b3a40}
+html[data-theme="dark"] .ltl{color:#bfe6e3;background:#123039;border-color:#1d444a}
+html[data-theme="dark"] .ltl:hover{background:#12a594;border-color:#12a594;color:#04211f}
+html[data-theme="dark"] .wcard-head{background:linear-gradient(135deg,#11303a,#0d2128);border-bottom-color:#1a383f}
+html[data-theme="dark"] .wcard-h{color:#eafcf9}
+html[data-theme="dark"] .wcard-meta{color:#8fb0b4}
+html[data-theme="dark"] .wcard-no{background:#12343a;color:#8ff0e2}
+html[data-theme="dark"] .wcard-prompt{background:#102b31;border-color:#1b3a40}
+html[data-theme="dark"] .wcard-prompt p{color:#c4dfe0}
+html[data-theme="dark"] .wcard-model{background:linear-gradient(135deg,#102a30,#0d2026);border-color:#1c4046;color:#d9f0ee}
+html[data-theme="dark"] .wcard-trt{background:#102a31;border-color:#1b3c42;color:#c8e0e1}
+html[data-theme="dark"] .wcard .ix-writing{background:#0d232a;border-color:#1d4046;color:#e7f7f5}
+html[data-theme="dark"] .ix-item{background:#0f262c!important;border-color:#1c3a41!important}
+html[data-theme="dark"] .ix-item .ix-input{background:#0c2128!important;border-color:#22454b!important;color:#e7f7f5!important}
+html[data-theme="dark"] .ix-instructions{background:#102e34!important;color:#cfe8e7}
+html[data-theme="dark"] .ix-wordbank{background:#11292f;border-color:#1d3d44}
+html[data-theme="dark"] .ix-bank-chips span{background:#0f262c;border-color:#22454b;color:#d7ecec;box-shadow:none}
+html[data-theme="dark"] .ix-bank-title{color:#eafcf9}
+html[data-theme="dark"] .ix-progress{background:#102c32;color:#a8c8cb}
+html[data-theme="dark"] .ix-q-en{color:#e2f6f4}
+html[data-theme="dark"] .ix-q-ar{color:#8ff0e2}
+html[data-theme="dark"] .e-ltr{background:#12343a!important;color:#8ff0e2!important;box-shadow:inset 0 0 0 1px #1d444a}
+html[data-theme="dark"] .e-m{background:#112c33!important;color:#a9c8cb!important;border-color:#1d3d44}
+html[data-theme="dark"] .e-h{color:#eafcf9}
+html[data-theme="dark"] .eb.ix-body{background:#0d2228!important}
+html[data-theme="dark"] .stab.on{background:linear-gradient(135deg,#12a594,#0e8f84)!important;color:#04211f!important;border-color:transparent!important}
+html[data-theme="dark"] .stab.on .cbadge{background:#04211f;color:#8ff0e2}
+html[data-theme="dark"] .utab.on{color:#04211f!important}
+html[data-theme="dark"] .utab.on small{color:#0b4a46!important;opacity:1}
+html[data-theme="dark"] .ix-check,
+html[data-theme="dark"] .ix-reveal,
+html[data-theme="dark"] .ix-lit-check,
+html[data-theme="dark"] .g11-btn{background:linear-gradient(135deg,#12a594,#0e8f84)!important;color:#04211f!important}
+html[data-theme="dark"] .g11-app,
+html[data-theme="dark"] .g11-unitstrip{background:#0e242a!important}
+html[data-theme="dark"] .g11-rulehead{background:linear-gradient(135deg,#11313a,#0e262c)!important;color:#d9f0ee!important}
+html[data-theme="dark"] .g11-practice-card,
+html[data-theme="dark"] .g11-question,
+html[data-theme="dark"] .g11-ex{background:#0f262c!important;border-color:#1c3a41!important;color:#dbeae9!important}
+html[data-theme="dark"] .g11-gap{background:#12343a;border-bottom-color:#3d6b70}
+html[data-theme="dark"] .g11-unitpill.active{color:#04211f}
+html[data-theme="dark"] .ix-search-card h3{color:#eafcf9}
+html[data-theme="dark"] .ix-search-card p{color:#a9c8cb}
+html[data-theme="dark"] .empty{color:#8fb0b4}
+html[data-theme="dark"] .tools input,
+html[data-theme="dark"] .tools select,
+html[data-theme="dark"] .sbox{background:#0e262c!important;border-color:#1e3f45!important;color:#dbeae9!important}
+html[data-theme="dark"] .g11-selectors select,
+html[data-theme="dark"] .g11-counter{color:#cfe8e7}
+html[data-theme="dark"] .lit-work-card.on{background:#0f262c!important}
+html[data-theme="dark"] .exhead b{color:#eafcf9}
+html[data-theme="dark"] .vc b{color:#eafcf9}
+html[data-theme="dark"] .vsec{color:#8ff0e2}
+html[data-theme="dark"] .qq{color:#eafcf9}
+html[data-theme="dark"] footer{background:linear-gradient(120deg,#06171c,#0a2a30 62%,#0b3a3a)}
+/* ── تطبيق القواعد نفسه داخل تبويب الوحدة ── */
+.unit-g11{margin-top:8px}
+.g11-app.g11-embedded{margin:10px 0 0!important;border-radius:20px!important;padding-bottom:16px;box-shadow:var(--sh-sm)}
+.g11-app.g11-embedded .g11-apphead{border-radius:20px 20px 0 0}
+#contentPanel:has(.g11-app.g11-embedded){padding:26px!important;overflow:visible!important}
+#contentPanel:has(.g11-app.g11-embedded)>.pnav{padding:0!important;margin-bottom:18px}
+#contentPanel:has(.g11-app.g11-embedded) #pb{width:auto!important;max-width:none!important;margin:0!important;padding:0!important}
+@media(max-width:620px){#contentPanel:has(.g11-app.g11-embedded){padding:16px!important}}
+.gr-extra{margin-top:20px;border-top:1px dashed #d7e8e5;padding-top:14px}
+.gr-extra-head{font:800 13.5px 'Tajawal';color:#0d5f5a;margin-bottom:8px}
+html[data-theme="dark"] .gr-extra{border-top-color:#1d3d44}
+html[data-theme="dark"] .gr-extra-head{color:#8ff0e2}
+
+/* ═══════════════════════════════════════════════════════════════
+   v3.1 · حجم الخط · تتبّع التقدّم · اختبار الوحدة العشوائي
+   ═══════════════════════════════════════════════════════════════ */
+html[data-fs="1"] main{zoom:1.07}
+html[data-fs="2"] main{zoom:1.15}
+.fs-btn{display:inline-flex;align-items:center;gap:4px;height:36px;padding:0 12px;border-radius:999px;border:1px solid var(--bd);background:#fff;color:#0d5f5a;font:800 12.5px 'Poppins';cursor:pointer;box-shadow:var(--sh-sm);margin-inline-start:auto;transition:.2s}
+.fs-btn:hover{background:#eefaf7;border-color:#bfe3dd;transform:translateY(-1px)}
+.fs-btn .fs-lv{font:800 9px 'Poppins';background:#0f7a72;color:#fff;border-radius:999px;padding:1px 5px}
+.hh-side{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.hh-side .fs-btn{margin-inline-start:0}
+
+/* شريحة تقدّم في ترويسة الوحدة */
+.uc-prog{display:inline-flex;align-items:center;gap:7px;background:#fff;border:1px solid #d9ece8;border-radius:999px;padding:3px 10px;margin-inline-start:6px;vertical-align:middle}
+.ucp-bar{display:block;width:56px;height:6px;border-radius:999px;background:#e4efee;overflow:hidden}
+.ucp-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2fd0bd,#0f7a72);border-radius:999px;transition:width .3s}
+.uc-prog b{font:800 11.5px 'Poppins';color:#0d6f68}
+
+/* شريط تقدّم تمارين الوحدة */
+.exprog{border:1px solid #d9ece8;background:linear-gradient(135deg,#f2fbf9,#fbfdfd);border-radius:16px;padding:14px 16px;margin:4px 0 14px}
+.exprog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.exprog-row b{font:800 14px 'Tajawal';color:#0d5f5a}
+.exprog-row span{font:800 12.5px 'Poppins';color:#0f7a72;background:#fff;border:1px solid #d9ece8;border-radius:999px;padding:3px 10px}
+.exprog-bar{height:9px;border-radius:999px;background:#e2efee;overflow:hidden}
+.exprog-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2fd0bd,#0f7a72);border-radius:999px;transition:width .35s}
+.exprog-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:9px}
+.exprog-foot small{font:600 11.5px 'Tajawal';color:#7d979a}
+.exprog-foot button{border:1px solid #e3d2cf;background:#fff;color:#a4553f;border-radius:9px;padding:5px 11px;font:700 11.5px 'Tajawal';cursor:pointer}
+.exprog-foot button:hover{background:#fdf3f0}
+
+/* زر «تم» لكل تمرين */
+.exmark{display:flex;justify-content:flex-end;padding:0 17px 12px}
+.exdone{border:1px solid var(--bd);background:var(--wh);color:var(--mu);border-radius:999px;padding:5px 13px;font:700 12px 'Tajawal';cursor:pointer;transition:.2s}
+.exdone:hover{border-color:#9ed7d0;color:#0d6f68;background:#f2fbf9}
+.exdone.on{background:#e6f7f1;border-color:#63bfa2;color:#0c7a55;font-weight:800}
+
+/* اختبار الوحدة */
+.uq{border:1px solid var(--bd);border-radius:20px;background:var(--wh);padding:18px;box-shadow:var(--sh-sm);margin-top:6px}
+.uq-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.uq-head b{display:block;font:800 17px 'Tajawal';color:var(--nv)}
+.uq-head small{display:block;font:600 12px/1.85 'Tajawal';color:var(--mu);margin-top:4px}
+.uq-best{font:800 12px 'Poppins';color:#0d6f68;background:var(--tllt);border-radius:999px;padding:5px 12px;white-space:nowrap}
+.uq .qopts{grid-template-columns:repeat(2,1fr);gap:9px}
+.uq .qo{direction:rtl;text-align:center;font:700 14.5px 'Tajawal';line-height:1.6;min-height:48px}
+.uq .qo.ok{color:var(--ok)}
+.uq .qo.no{color:var(--no)}
+@media(max-width:560px){.uq .qopts{grid-template-columns:1fr}}
+.uq .qq{font:800 19px/1.6 'Poppins';direction:ltr;text-align:center;border-right:0;border-bottom:3px solid var(--tl);padding:0 0 10px;margin-bottom:14px}
+.uq .btn-p{width:100%}
+.uq .qres .sc{color:var(--tl)}
+.statprog{border:1px solid #d9ece8;background:linear-gradient(135deg,#f2fbf9,#fbfdfd);border-radius:16px;padding:14px 16px;margin-bottom:16px}
+.statprog-row{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.statprog-row b{font:800 14.5px 'Tajawal';color:#0d5f5a}
+.statprog-row span{font:800 12.5px 'Poppins';color:#0f7a72}
+.statprog-bar{height:9px;border-radius:999px;background:#e2efee;overflow:hidden}
+.statprog-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,#2fd0bd,#0f7a72);border-radius:999px;transition:width .35s}
+.statprog-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:9px}
+.statprog-foot small{font:600 11.5px 'Tajawal';color:#7d979a}
+.statprog-foot button{border:1px solid #e3d2cf;background:#fff;color:#a4553f;border-radius:9px;padding:5px 11px;font:700 11.5px 'Tajawal';cursor:pointer}
+@media(max-width:560px){.uq{padding:14px}.uq .qq{font-size:17px}.ucp-bar{width:42px}}
+html[data-theme="dark"] .fs-btn{background:#0f262c;color:#bfe6e3;border-color:#1d444a}
+html[data-theme="dark"] .fs-btn:hover{background:#12343a}
+html[data-theme="dark"] .uc-prog{background:#102b31;border-color:#1d444a}
+html[data-theme="dark"] .uc-prog b{color:#8fe3d6}
+html[data-theme="dark"] .ucp-bar{background:#173a40}
+html[data-theme="dark"] .exprog,html[data-theme="dark"] .statprog{background:linear-gradient(135deg,#0f2b31,#0c2026);border-color:#1b3d44}
+html[data-theme="dark"] .exprog-row b,html[data-theme="dark"] .statprog-row b{color:#8ff0e2}
+html[data-theme="dark"] .exprog-row span,html[data-theme="dark"] .statprog-row span{color:#8ff0e2}
+html[data-theme="dark"] .exprog-bar,html[data-theme="dark"] .statprog-bar{background:#173a40}
+html[data-theme="dark"] .exprog-foot small,html[data-theme="dark"] .statprog-foot small{color:#8fb0b4}
+html[data-theme="dark"] .exprog-foot button,html[data-theme="dark"] .statprog-foot button{background:#10272c;border-color:#4a3330;color:#ffb59f}
+html[data-theme="dark"] .exdone{background:#10272c;border-color:#1d444a;color:#9fc0c3}
+html[data-theme="dark"] .exdone.on{background:#11342f;border-color:#2f8a70;color:#7ff0c8}
+html[data-theme="dark"] .uq{background:#0f262c;border-color:#1d3d44}
+html[data-theme="dark"] .uq-head b{color:#eafcf9}
+html[data-theme="dark"] .uq-best{background:#12343a;color:#8ff0e2}
+html[data-theme="dark"] .qfb{background:#12343a;color:#d9f0ee}
+html[data-theme="dark"] .qo{color:#dbeae9}
+html[data-theme="dark"] .uq .qo{color:#dbeae9}
+html[data-theme="dark"] .qo.ok,html[data-theme="dark"] .uq .qo.ok{color:var(--ok)}
+html[data-theme="dark"] .qo.no,html[data-theme="dark"] .uq .qo.no{color:var(--no)}
+</style>
+<script id="e2027-theme-boot">(function(){try{var t=localStorage.getItem('e2027-theme');if(t!=='dark'&&t!=='light'){t=(window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches)?'dark':'light';}document.documentElement.setAttribute('data-theme',t);}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+<script id="e2027-fs-boot">(function(){try{var n=parseInt(localStorage.getItem('e2027-fs')||'0',10);if(n>0&&n<3)document.documentElement.setAttribute('data-fs',String(n));}catch(e){}})();</script>
 </head>
 <body>
 <div id="welcomeScreen" class="welcome-screen" role="dialog" aria-label="واجهة البداية">
@@ -878,8 +1206,9 @@ footer small{color:#7fa2a9}
 <div class="bar">
   <div class="logo" onclick="goHome()">E6</div>
   <div class="bar-t">إنكليزي السادس الإعدادي<small>ENGLISH FOR IRAQ · 2026–2027</small></div>
-  <button class="bb" onclick="showSection('search')">🔍</button>
-  <button class="bb" onclick="goHome()">⊞</button>
+  <button class="bb" onclick="showSection('search')" aria-label="بحث">🔍</button>
+  <button class="bb theme-tt" id="themeToggle" onclick="toggleTheme()" aria-label="الوضع الليلي / النهاري" title="الوضع الليلي / النهاري"><span class="tt-ico">🌙</span></button>
+  <button class="home-tab" onclick="goHome()" aria-label="الرئيسية"><span class="ht-ico">⌂</span><span class="ht-lbl">الرئيسية</span></button>
 </div>
 <main>
   <div class="hero fu" id="heroSection">
@@ -893,7 +1222,7 @@ footer small{color:#7fa2a9}
     </div>
   </div>
   <div id="homeView">
-    <div class="home-heading"><div><small>محتويات التطبيق</small><div class="sl fu d1">اختر القسم</div></div><span class="version-pill">النسخة التفاعلية · 2027</span></div>
+    <div class="home-heading"><div><small>محتويات التطبيق</small><div class="sl fu d1">اختر القسم</div></div><div class="hh-side"><span class="version-pill">النسخة التفاعلية · 2027</span><button class="fs-btn" type="button" onclick="cycleFontScale()" aria-label="تغيير حجم الخط" title="حجم الخط">Aa</button></div></div>
     <div class="ss fu d2">الوحدات والدروس والتمارين والشروحات في واجهة واحدة</div>
     <div class="hgrid">
       <button class="card fu d1" onclick="showSection('units')"><div class="c-ico">📚</div><b>الوحدات</b><small>8 وحدات كاملة · 26 موضوعاً · تمارين تفاعلية · 15 إنشاءً</small><span class="c-arr">←</span></button>
@@ -907,7 +1236,7 @@ footer small{color:#7fa2a9}
     </div>
   </div>
   <div class="panel fu" id="contentPanel" hidden>
-    <div class="pnav"><button class="back" onclick="goHome()">← الرئيسية</button><span class="bc" id="bc"></span></div>
+    <div class="pnav"><button class="back" onclick="goHome()">← الرئيسية</button><span class="bc" id="bc"></span><button class="fs-btn" type="button" onclick="cycleFontScale()" aria-label="تغيير حجم الخط" title="حجم الخط">Aa</button></div>
     <div id="pb"></div>
   </div>
 </main>
@@ -922,6 +1251,41 @@ function startApp(){
  w.classList.add('is-leaving');
  window.setTimeout(()=>{w.style.display='none';document.body.classList.add('app-started');},680);
 }
+
+// ── الوضع الليلي / النهاري ──
+function applyTheme(t,persist){
+  const dark=(t==='dark');
+  document.documentElement.setAttribute('data-theme',dark?'dark':'light');
+  if(persist){try{localStorage.setItem('e2027-theme',dark?'dark':'light');}catch(e){}}
+  const b=document.getElementById('themeToggle');
+  if(b){
+    b.innerHTML='<span class="tt-ico">'+(dark?'☀️':'🌙')+'</span>';
+    b.setAttribute('aria-pressed',dark?'true':'false');
+    b.title=dark?'الوضع النهاري':'الوضع الليلي';
+  }
+}
+function toggleTheme(){applyTheme(document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark',true);}
+function initTheme(){applyTheme(document.documentElement.getAttribute('data-theme')||'light',false);}
+initTheme();
+
+// ── حجم الخط (3 مستويات محفوظة) ──
+const FS_LABELS=['عادي','كبير','أكبر'];
+function fsIndex(){try{const n=parseInt(localStorage.getItem('e2027-fs')||'0',10);return (n>=0&&n<3)?n:0;}catch(e){return 0;}}
+function applyFontScale(i,persist){
+  const n=(i>=0&&i<3)?i:0;
+  if(n)document.documentElement.setAttribute('data-fs',String(n));
+  else document.documentElement.removeAttribute('data-fs');
+  if(persist){try{localStorage.setItem('e2027-fs',String(n));}catch(e){}}
+  document.querySelectorAll('.fs-btn').forEach(b=>{
+    b.innerHTML='Aa<span class="fs-lv">'+(n+1)+'</span>';
+    b.title='حجم الخط: '+FS_LABELS[n]+' — اضغط للتغيير';
+    b.setAttribute('aria-label','حجم الخط: '+FS_LABELS[n]+' — اضغط للتغيير');
+    b.dataset.lv=String(n);
+  });
+}
+function cycleFontScale(){applyFontScale((fsIndex()+1)%3,true);}
+applyFontScale(fsIndex(),false);
+
 
 // ═══════════════════════════════════════
 // GRAMMAR RULES (من الملزمة حصراً)
@@ -2585,7 +2949,7 @@ function grCard(key,idx){
   }).join('');
   const en=String(x.en||'').split(/\n/).filter(Boolean).map(line=>`<p dir="ltr" class="g-en-line"><b class="g-star">*</b>${esc(line.trim())}</p>`).join('');
   const ar=String(x.tr||'').split(/\n/).filter(Boolean).map(line=>`<p dir="rtl" class="g-ar-line">${esc(line.trim())}</p>`).join('');
-  return `<details class="gc fu" style="animation-delay:${(idx||0)*.04}s"><summary><span class="g-badge">${x.u}</span><b>${esc(x.t)}</b><span class="g-meta">${esc(x.src)}</span></summary><div class="gb"><div class="g-art" dir="rtl">${esc(x.ar)}</div><div class="g-rulebox"><div class="g-ruletext">${rule}</div></div>${ar?`<div class="g-tr">${ar}</div>`:''}${en?`<div class="g-en">${en}</div>`:''}<small class="g-src">📌 ${esc(x.src)}</small></div></details>`;
+  return `<details class="gc fu" data-k="${key}" style="animation-delay:${(idx||0)*.04}s"><summary><span class="g-badge">${x.u}</span><b>${esc(x.t)}</b><span class="g-meta">${esc(x.src)}</span></summary><div class="gb"><div class="g-art" dir="rtl">${esc(x.ar)}</div><div class="g-rulebox"><div class="g-ruletext">${rule}</div></div>${ar?`<div class="g-tr">${ar}</div>`:''}${en?`<div class="g-en">${en}</div>`:''}<small class="g-src">📌 ${esc(x.src)}</small></div></details>`;
 }
 
 // ── EXERCISE CARD ──
@@ -2646,11 +3010,125 @@ function vocabHtml(lessons){
 
 // ── WRITING CARDS ──
 function writingHtml(items){
- if(!items||!items.length)return'';
- return items.map((w,i)=>`<div class="wcard fu"><details><summary class="wcard-head"><span class="wcard-ico">✍️</span><span class="wcard-h">${esc(w.title)}</span><span style="font-size:11px;color:var(--mu);font-family:'Poppins'">${w.words} words</span></summary><div class="wcard-body"><div class="wcard-prompt">${esc(w.prompt)}</div><textarea class="ix-writing" placeholder="اكتب إجابتك هنا"></textarea><button class="ix-reveal" type="button" onclick="const x=this.nextElementSibling;x.hidden=!x.hidden;this.textContent=x.hidden?'عرض النموذج (للمراجعة بعد الحل)':'إخفاء النموذج'">عرض النموذج (للمراجعة بعد الحل)</button><pre hidden>${esc(w.model)}</pre><div class="wcard-ar">${esc(w.ar)}</div></div></details></div>`).join('');
+  if(!items||!items.length)return '';
+  return items.map((w,i)=>`<article class="wcard fu" id="wr-${i}" style="animation-delay:${i*.05}s">
+    <div class="wcard-head"><span class="wcard-ico">✍️</span><div class="wcard-hw"><span class="wcard-h">${esc(w.title)}</span><span class="wcard-meta">${w.words} كلمة · حل كامل + ترجمة عربية</span></div><span class="wcard-no">${String(i+1).padStart(2,'0')}</span></div>
+    <div class="wcard-body">
+      <div class="wcard-prompt"><b>📝 المطلوب</b><p>${esc(w.prompt)}</p></div>
+      <label class="wcard-lab" for="wrt-${i}">اكتب محاولتك أولاً</label>
+      <textarea class="ix-writing" id="wrt-${i}" placeholder="اكتب إنشاءك هنا، ثم قارنه بالحل الكامل والترجمة"></textarea>
+      <div class="wcard-sol"><div class="wcard-solhead"><b>✅ الحل الكامل</b><span class="wcard-words">${w.words} words</span></div><pre class="wcard-model" dir="ltr">${esc(w.model)}</pre></div>
+      <div class="wcard-tr"><div class="wcard-solhead"><b>🌐 الترجمة العربية</b></div><div class="wcard-trt" dir="rtl">${esc(w.ar).replace(/\n/g,'<br>')}</div></div>
+    </div>
+  </article>`).join('');
 }
 
 // ── BUILD ──
+// ══ v3 · فهرس مواضيع الوحدة + عرض القواعد الموحّد (اسم + شرح نصي من الملزمة) ══
+function grRefTopics(){const d=window.GRAMMAR_REFERENCE_111;return (d&&Array.isArray(d.topics))?d.topics:[];}
+function grRefText(t){
+  const rule=(t.rule||[]).map(r=>typeof r==='string'?r:[r.ar,r.en].filter(Boolean).join(' ')).join(' ');
+  return [t.ar,t.en,rule,t.ruleEn,(t.tips||[]).join(' ')].join(' ');
+}
+const GR_EXTRA={1:['phrasal-verbs','imperative']};
+function grList(unitN,q){
+  const qn=ixNorm(q||'');
+  const unit=unitN?UNITS_ALL.find(x=>x.n===unitN):null;
+  const allRefs=grRefTopics();
+  const unitRefs=allRefs.filter(t=>!unitN||String(t.unit)===String(unitN));
+  let keys=unitN?(GR_EXTRA[unitN]||[]).filter(k=>GR[k]):[];
+  const refs=unitRefs.filter(t=>!qn||ixNorm(grRefText(t)).includes(qn));
+  if(qn)keys=keys.filter(k=>ixNorm([GR[k].t,GR[k].ar,GR[k].rule,GR[k].en,GR[k].tr].join(' ')).includes(qn));
+  return {refs,keys,total:refs.length+keys.length};
+}
+function grRefCard(t,idx){
+  const paras=(t.rule||[]).map(r=>{
+    const v=typeof r==='string'?r:(r.ar||r.en||'');
+    if(!v)return '';
+    const isAr=/[ء-ي٠-٩]/.test(v);
+    return `<p class="grx-p${isAr?'':' grx-en'}" dir="${isAr?'rtl':'ltr'}">${v}</p>`;
+  }).join('');
+  const tips=(t.tips||[]).filter(Boolean).map(x=>`<li>${x}</li>`).join('');
+  return `<details class="gc grx fu" data-k="ref-${t.id}" style="animation-delay:${(idx||0)*.04}s">
+    <summary><span class="g-badge">${t.unit}</span><b dir="rtl">${esc(t.ar)}</b><span class="g-meta" dir="ltr">${esc(t.en)}</span></summary>
+    <div class="gb">
+      <div class="g-art" dir="rtl">${esc(t.unitAr)} · ${esc(t.en)}</div>
+      <div class="g-rulebox"><div class="g-ruletext grx-rule">${paras}</div></div>
+      ${tips?`<div class="grx-tips"><b>📌 ملاحظات مهمة من الملزمة</b><ul>${tips}</ul></div>`:''}
+      ${t.ruleEn?`<details class="grx-enbox"><summary>English summary</summary><div dir="ltr">${esc(t.ruleEn).replace(/\n/g,'<br>')}</div></details>`:''}
+      <small class="g-src">📌 ${esc(t.unitAr)} — الشرح من الملزمة حصراً</small>
+    </div></details>`;
+}
+function grammarBlockHtml(unitN,q){
+  const L=grList(unitN,q);
+  if(!L.total)return '<div class="empty">'+(q?'لا توجد مواضيع قواعد مطابقة.':'لا توجد مواضيع قواعد في هذه الوحدة.')+'</div>';
+  return L.refs.map((t,i)=>grRefCard(t,i)).join('')+L.keys.map((k,i)=>grCard(k,L.refs.length+i)).join('');
+}
+function grExtrasHtml(unitN){
+  const keys=grList(unitN,'').keys;
+  if(!keys.length)return '';
+  return `<div class="gr-extra"><div class="gr-extra-head">📎 مواضيع إضافية من الملزمة (غير مشمولة في تطبيق القواعد)</div>${keys.map((k,i)=>grCard(k,i)).join('')}</div>`;
+}
+function readingItems(u){
+  const out=[];
+  (u.exercises||[]).forEach((b,i)=>{
+    const txt=[b.h,b.les,b.lbl].filter(Boolean).join(' ');
+    if(/reading|comprehension|اقرأ القطعة|قطعة/i.test(txt))out.push({i,label:b.h||b.les||('قطعة '+(out.length+1))});
+  });
+  return out;
+}
+function lessonTopicsHtml(u){
+  const L=grList(u.n,'');
+  const wr=(u.writing||[]).map((w,i)=>({i,label:w.title}));
+  const rd=readingItems(u);
+  if(!L.total&&!wr.length&&!rd.length)return '';
+  let h=`<div class="lt-topics"><div class="ltt-head">🔗 مواضيع هذه الوحدة — اضغط على الموضوع للانتقال إليه مباشرة</div>`;
+  if(L.total){
+    h+=`<div class="ltt-grp"><span class="ltt-tag">📐 القواعد</span><div class="ltt-links">`;
+    h+=L.refs.map(t=>`<button class="ltl" type="button" onclick="openUnitTopic('ref-${t.id}')">${esc(t.ar)}</button>`).join('');
+    h+=L.keys.map(k=>`<button class="ltl" type="button" onclick="openUnitTopic('${k}')">${esc(GR[k].ar||GR[k].t)}</button>`).join('');
+    h+=`</div></div>`;
+  }
+  if(rd.length){
+    h+=`<div class="ltt-grp"><span class="ltt-tag">📖 القطع</span><div class="ltt-links">`;
+    h+=rd.map(r=>`<button class="ltl" type="button" onclick="openUnitPassage(${r.i})">${esc(r.label)}</button>`).join('');
+    h+=`</div></div>`;
+  }
+  if(wr.length){
+    h+=`<div class="ltt-grp"><span class="ltt-tag">✍️ الإنشاء</span><div class="ltt-links">`;
+    h+=wr.map(w=>`<button class="ltl" type="button" onclick="openUnitWriting(${w.i})">${esc(w.label)}</button>`).join('');
+    h+=`</div></div>`;
+  }
+  h+=`</div>`;
+  return h;
+}
+function flashEl(el){
+  if(!el)return;
+  el.classList.remove('gc-flash');void el.offsetWidth;el.classList.add('gc-flash');
+  setTimeout(()=>el.classList.remove('gc-flash'),1700);
+}
+function focusCard(sel){
+  const el=document.querySelector(sel);
+  if(!el)return;
+  document.querySelectorAll('details.gc').forEach(d=>{if(d!==el)d.open=false;});
+  if(el.tagName==='DETAILS')el.open=true;
+  setTimeout(()=>{el.scrollIntoView({behavior:'smooth',block:'center'});flashEl(el);},60);
+}
+function openUnitTopic(key){
+  curSub='grammar';_renderUnit();
+  if(key.indexOf('ref-')===0){
+    const id=Number(key.slice(4));
+    if(typeof window.__g11Go==='function'&&window.__g11Go(curUnit,id,'rule')){
+      const box=document.getElementById('unitGrammar');
+      if(box)setTimeout(()=>{box.scrollIntoView({behavior:'smooth',block:'start'});flashEl(box);},60);
+      return;
+    }
+  }
+  focusCard('.gc[data-k="'+key+'"]');
+}
+function openUnitWriting(i){curSub='writing';_renderUnit();const el=document.getElementById('wr-'+i);if(el)setTimeout(()=>{el.scrollIntoView({behavior:'smooth',block:'start'});flashEl(el);},60);}
+function openUnitPassage(i){curSub='exercises';_renderUnit();focusCard('#ex-'+curUnit+'-'+i+' details');}
+
 let curUnit=1,curSub='lessons';
 
 function _build(key){
@@ -2718,6 +3196,7 @@ function _build(key){
   if(key==='tests'){ pb.innerHTML=`<h2 class="pt fu">التدريب التفاعلي</h2><p class="ps fu d1">تدرب على أسئلة كتاب النشاط والأدب دون عرض الحلول مسبقاً.</p><button class="btn-p" onclick="showSection('exercises')">تمارين كتاب النشاط ←</button><button class="btn-p" onclick="showSection('literature')">تمارين الأدب ←</button>`; return; }
   if(key==='stats'){
     pb.innerHTML=`<h2 class="pt fu">إحصائي</h2>
+    <div class="statprog fu"><div class="statprog-row"><b>📈 تقدّمك في التمارين</b><span data-totalprog></span></div><div class="statprog-bar"><i data-totalfill></i></div><div class="statprog-foot"><small>يُحفظ التقدّم على جهازك تلقائياً.</small><button type="button" onclick="resetAllProgress()">تصفير كل التقدّم</button></div></div>
     <div class="sg">
       ${[["26","موضوعاً قواعدياً"],["8","وحدات كاملة"],["244","تمرين أدب تفاعلي"],["15","إنشاءً"],["70+","مفردة"],["110","درجة"]].map(([n,l],i)=>`
       <div class="scard pop" style="animation-delay:${i*.07}s"><b>${n}</b><small>${l}</small></div>`).join('')}
@@ -2733,6 +3212,7 @@ function _build(key){
       <tr><td>المحتوى</td><td>من الملازم الرسمية حصراً</td></tr>
       <tr><td>الحالة</td><td>✅ جميع الوحدات 1–8 مكتملة بشكل كامل</td></tr>
     </table><span class="vbadge">v1.5 · versionCode 6</span></div>`;
+    refreshProgressUI();
     return;
   }
   if(key==='search'){
@@ -2744,6 +3224,90 @@ function _build(key){
     setTimeout(()=>document.getElementById('smartSearchInput')?.focus(),120);return;
   }
 }
+
+// ── تقدّم التمارين (محفوظ على الجهاز) ──
+const DONE_KEY='e2027-done';
+let doneSet=(function(){try{return new Set(JSON.parse(localStorage.getItem(DONE_KEY)||'[]'));}catch(e){return new Set();}})();
+function saveDoneSet(){try{localStorage.setItem(DONE_KEY,JSON.stringify([...doneSet]));}catch(e){}}
+function unitDone(n){
+  const u=UNITS_ALL.find(x=>x.n===n),total=(u&&u.exercises)?u.exercises.length:0;let d=0;
+  for(let i=0;i<total;i++)if(doneSet.has(n+'-'+i))d++;
+  return {done:d,total:total,pct:total?Math.round(d/total*100):0};
+}
+function allDone(){let d=0,t=0;UNITS_ALL.forEach(u=>{const p=unitDone(u.n);d+=p.done;t+=p.total;});return {done:d,total:t,pct:t?Math.round(d/t*100):0};}
+function exMarkHtml(key){const on=doneSet.has(key);return `<div class="exmark"><button class="exdone${on?' on':''}" type="button" data-exdone="${key}" aria-pressed="${on?'true':'false'}" onclick="toggleExDone('${key}')">${on?'✓ تم إنجازه':'☐ علّم كمنجز'}</button></div>`;}
+function exProgressHtml(n){const p=unitDone(n);return `<div class="exprog">
+      <div class="exprog-row"><b>📈 تقدّمك في تمارين هذه الوحدة</b><span data-uprogtxt="${n}">${p.done} من ${p.total}</span></div>
+      <div class="exprog-bar"><i data-upfill="${n}" style="width:${p.pct}%"></i></div>
+      <div class="exprog-foot"><small>يُحفظ التقدّم على جهازك تلقائياً.</small><button type="button" onclick="resetUnitProgress(${n})">تصفير الوحدة</button></div>
+    </div>`;}
+function ucProgressHtml(n){const p=unitDone(n);return `<span class="uc-prog" title="التمارين المنجزة"><span class="ucp-bar"><i data-upfill="${n}" style="width:${p.pct}%"></i></span><b data-ucprogtxt="${n}">${p.done}/${p.total}</b></span>`;}
+function refreshProgressUI(){
+  document.querySelectorAll('[data-exdone]').forEach(b=>{const k=b.dataset.exdone,on=doneSet.has(k);b.classList.toggle('on',on);b.setAttribute('aria-pressed',on?'true':'false');b.textContent=on?'✓ تم إنجازه':'☐ علّم كمنجز';});
+  document.querySelectorAll('[data-upfill]').forEach(i=>{const n=+i.dataset.upfill;i.style.width=unitDone(n).pct+'%';});
+  document.querySelectorAll('[data-uprogtxt]').forEach(s=>{const p=unitDone(+s.dataset.uprogtxt);s.textContent=p.done+' من '+p.total;});
+  document.querySelectorAll('[data-ucprogtxt]').forEach(s=>{const p=unitDone(+s.dataset.ucprogtxt);s.textContent=p.done+'/'+p.total;});
+  const a=allDone();
+  document.querySelectorAll('[data-totalprog]').forEach(s=>{s.textContent=a.done+' من '+a.total+' تمريناً · '+a.pct+'%';});
+  document.querySelectorAll('[data-totalfill]').forEach(i=>{i.style.width=a.pct+'%';});
+}
+function toggleExDone(key){if(doneSet.has(key))doneSet.delete(key);else doneSet.add(key);saveDoneSet();refreshProgressUI();}
+function resetUnitProgress(n){const u=UNITS_ALL.find(x=>x.n===n);if(!u)return;if(!confirm('تصفير تقدّم تمارين الوحدة '+n+'؟'))return;for(let i=0;i<(u.exercises||[]).length;i++)doneSet.delete(n+'-'+i);saveDoneSet();refreshProgressUI();}
+function resetAllProgress(){if(!confirm('تصفير كل تقدّم التمارين؟'))return;doneSet.clear();saveDoneSet();refreshProgressUI();}
+
+// ── اختبار الوحدة العشوائي (من مفردات الوحدة) ──
+let uqState=null;
+function uqBest(n){try{const v=parseInt(localStorage.getItem('e2027-best-'+n)||'0',10);return (v>=0&&v<=100)?v:0;}catch(e){return 0;}}
+function unitQuizHtml(u){return `<div class="uq">
+      <div class="uq-head"><div><b>🎯 اختبار الوحدة ${u.n} — ${esc(u.ar)}</b><small>10 أسئلة عشوائية من مفردات هذه الوحدة، بترتيب وخيارات مختلفة في كل محاولة.</small></div>
+      <span class="uq-best" id="uqbest-${u.n}">أفضل نتيجة: ${uqBest(u.n)}%</span></div>
+      <div class="uq-body" id="uqbody-${u.n}"><button class="btn-p" type="button" onclick="startUnitQuiz(${u.n})">🎲 ابدأ الاختبار العشوائي</button></div>
+    </div>`;}
+function unitQuizPool(n){
+  const u=UNITS_ALL.find(x=>x.n===n);if(!u)return[];
+  const all=[];UNITS_ALL.forEach(x=>(x.vocab||[]).forEach(s=>(s.words||[]).forEach(w=>{if(w.w&&w.m)all.push(w);})));
+  const own=[];(u.vocab||[]).forEach(s=>(s.words||[]).forEach(w=>{if(w.w&&w.m)own.push(w);}));
+  const usedM=new Set();
+  const pool=[];
+  own.forEach(w=>{const m=String(w.m).trim();if(!m||usedM.has(m))return;usedM.add(m);
+    const used=new Set([m]),wrongs=[];
+    const cand=all.filter(x=>x.w!==w.w&&x.m).sort(()=>Math.random()-.5);
+    for(const c of cand){if(wrongs.length>=3)break;const cm=String(c.m).trim();if(!cm||used.has(cm))continue;used.add(cm);wrongs.push(cm);}
+    if(wrongs.length<3)return;
+    pool.push({q:w.w,correct:m,opts:[...wrongs,m].sort(()=>Math.random()-.5)});
+  });
+  return pool.sort(()=>Math.random()-.5).slice(0,10);
+}
+function startUnitQuiz(n){const items=unitQuizPool(n);if(!items.length)return;uqState={n:n,items:items,i:0,score:0,answered:false};drawUnitQuiz();}
+function drawUnitQuiz(){
+  const st=uqState;if(!st)return;
+  const box=document.getElementById('uqbody-'+st.n);if(!box)return;
+  if(st.i>=st.items.length){
+    const pct=Math.round(st.score/st.items.length*100),prev=uqBest(st.n),best=Math.max(pct,prev);
+    try{localStorage.setItem('e2027-best-'+st.n,String(best));}catch(e){}
+    const bs=document.getElementById('uqbest-'+st.n);if(bs)bs.textContent='أفضل نتيجة: '+best+'%';
+    box.innerHTML=`<div class="qres"><span class="sc">${st.score}/${st.items.length}</span>
+      <p>نسبة الإجابة الصحيحة: <b>${pct}%</b>${pct>prev?' · أفضل نتيجة لك!':''}</p>
+      <p style="font-size:17px">${pct>=90?'ممتاز! 🏆':pct>=70?'جيد جداً 🎉':pct>=50?'جيد — راجع المفردات 📖':'تحتاج مراجعة سريعة للمفردات 💪'}</p>
+      <button class="btn-p" type="button" onclick="startUnitQuiz(${st.n})">🎲 اختبار جديد</button></div>`;
+    return;
+  }
+  const it=st.items[st.i];
+  box.innerHTML=`<div class="qcard"><div class="qprog">السؤال ${st.i+1} من ${st.items.length} · النتيجة: ${st.score}</div>
+    <p class="qq">${esc(it.q)}</p>
+    <div class="qopts">${it.opts.map(o=>`<button class="qo" type="button" data-ok="${o.trim()===it.correct?'1':'0'}" onclick="answerUnitQuiz(this)">${esc(o)}</button>`).join('')}</div>
+    <div id="uqfb"></div></div>`;
+}
+function answerUnitQuiz(btn){
+  const st=uqState;if(!st||st.answered)return;st.answered=true;
+  const box=document.getElementById('uqbody-'+st.n);if(!box)return;
+  box.querySelectorAll('.qo').forEach(b=>{b.disabled=true;if(b.dataset.ok==='1')b.classList.add('ok');});
+  const ok=btn.dataset.ok==='1';
+  if(ok)st.score++;else btn.classList.add('no');
+  const fb=document.getElementById('uqfb');
+  if(fb)fb.innerHTML=`<div class="qfb">${ok?'✅ <b>إجابة صحيحة!</b>':'❌ <b>الإجابة الصحيحة:</b> '+esc(st.items[st.i].correct)}</div><button class="btn-p" type="button" onclick="nextUnitQuiz()">${st.i===st.items.length-1?'عرض النتيجة':'السؤال التالي ←'}</button>`;
+}
+function nextUnitQuiz(){if(!uqState)return;uqState.i++;uqState.answered=false;drawUnitQuiz();}
 
 // ── UNIT VIEW ──
 function showUnit(n,btn){
@@ -2777,13 +3341,14 @@ function _renderUnit(){
 
   let h=`<div class="uc-box">
     ${unitHeading(u)}
-    <div class="uc-sub">${esc(u.ar)} · ${u.lessons.length} دروس · ${u.gr.length} مواضيع قواعدية · ${nex} تمريناً · ${nvoc} مفردة · ${nmq} مفردة · ${nwr} إنشاء</div>
+    <div class="uc-sub">${esc(u.ar)} · ${u.lessons.length} دروس · ${grList(u.n,'').total} مواضيع قواعدية · ${nex} تمريناً · ${nvoc} مفردة · ${nmq} مفردة · ${nwr} إنشاء ${ucProgressHtml(u.n)}</div>
     <div class="subtabs">
       <button class="stab${curSub==='lessons'?' on':''}" onclick="showUnitSub('lessons',this)">📋 الدروس <span class="cbadge">${u.lessons.length}</span></button>
-      <button class="stab${curSub==='grammar'?' on':''}" onclick="showUnitSub('grammar',this)">📐 القواعد <span class="cbadge">${u.gr.length}</span></button>
+      <button class="stab${curSub==='grammar'?' on':''}" onclick="showUnitSub('grammar',this)">📐 القواعد <span class="cbadge">${grList(u.n,'').total}</span></button>
       <button class="stab${curSub==='exercises'?' on':''}" onclick="showUnitSub('exercises',this)">✏️ التمارين <span class="cbadge">${nex}</span></button>
       <button class="stab${curSub==='vocab'?' on':''}" onclick="showUnitSub('vocab',this)">🔤 المفردات <span class="cbadge">${nvoc}</span></button>
       <button class="stab${curSub==='writing'?' on':''}" onclick="showUnitSub('writing',this)">✍️ الإنشاء <span class="cbadge">${nwr}</span></button>
+      <button class="stab${curSub==='quiz'?' on':''}" onclick="showUnitSub('quiz',this)">🎯 اختبار <span class="cbadge">10</span></button>
     </div>`;
 
   if(curSub==='lessons'){
@@ -2791,16 +3356,16 @@ function _renderUnit(){
       <tr><th>#</th><th>عنوان الدرس — العنوان العربي</th><th>ص</th></tr>
       ${u.lessons.map((l,i)=>`<tr><td>${i+1}</td><td><div class="lesson-title-en" dir="ltr">${esc(l.t)}</div>${l.ar?`<div class="lesson-title-ar" dir="rtl">${esc(l.ar)}</div>`:''}</td><td><span class="lesson-page">${l.p}</span></td></tr>`).join('')}
     </table>
-    <div style="background:var(--paper);border-radius:12px;padding:14px;font-size:13px;color:#3a526b">
-      <b style="color:var(--nv);display:block;margin-bottom:8px">مواضيع القواعد في هذه الوحدة (${u.gr.length} موضوع):</b>
-      ${u.gr.map(g=>`<span style="display:inline-block;background:var(--tllt);color:var(--tl);border-radius:20px;padding:4px 11px;margin:3px;font-size:12px;font-weight:700">${esc(GR[g]?.ar||g)}</span>`).join('')}
-    </div>`;
+    ${lessonTopicsHtml(u)}`;
   } else if(curSub==='grammar'){
-    h+=u.gr.map((g,i)=>grCard(g,i)).join('')||'<div class="empty">لا توجد قواعد.</div>';
+    const hasApp=(grList(u.n,'').refs.length>0)&&(typeof window.__g11Render==='function');
+    h+=`<div id="unitGrammar" class="unit-g11">${hasApp?'':grammarBlockHtml(u.n)}</div>`;
+    h+=hasApp?grExtrasHtml(u.n):'';
   } else if(curSub==='exercises'){
     if(nex){
       h+=`<div class="exgroup"><div class="exhead"><b>تمارين Unit ${u.n} — ${esc(u.t)}</b><span class="expill">${nex} تمرين</span></div>
-      ${u.exercises.map(b=>exCard(b)).join('')}</div>`;
+      ${exProgressHtml(u.n)}
+      ${u.exercises.map((b,i)=>`<div class="exwrap" id="ex-${u.n}-${i}">${exCard(b)}${exMarkHtml(u.n+'-'+i)}</div>`).join('')}</div>`;
     } else h+='<div class="empty">لا توجد تمارين.</div>';
   } else if(curSub==='vocab'){
     h+=nvoc?vocabHtml(u.vocab):'<div class="empty">لا توجد مفردات.</div>';
@@ -2808,10 +3373,16 @@ function _renderUnit(){
     h+=nmq?meaningsHtml(u.meanings):'<div class="empty">لا توجد تمارين الكتاب.</div>';
   } else if(curSub==='writing'){
     h+=nwr?writingHtml(u.writing):'<div class="empty">لا توجد إنشاءات.</div>';
+  } else if(curSub==='quiz'){
+    h+=unitQuizHtml(u);
   }
 
   h+='</div>';
   uc.innerHTML=h;
+  if(curSub==='grammar'&&typeof window.__g11Render==='function'&&grList(u.n,'').refs.length>0){
+    const mount=document.getElementById('unitGrammar');
+    if(mount){mount.innerHTML='';window.__g11Render({mount:mount,unit:u.n,tab:'rule'});}
+  }
 }
 
 // ── SMART ARABIC SEARCH v1.12.6 ──
@@ -2888,15 +3459,12 @@ function clearSmartSearch(){const x=document.getElementById('smartSearchInput');
 
 // ── GRAMMAR ALL ──
 function rGr(){
-  const q=(document.getElementById('gS')?.value||'').toLowerCase().trim();
+  const q=(document.getElementById('gS')?.value||'').trim();
   const u=document.getElementById('gU')?.value||'all';
-  const all=Object.keys(GR);
-  const arr=all.filter(k=>{
-    const x=GR[k];
-    return(u==='all'||String(x.u)===u)&&(!q||[x.t,x.ar,x.rule,x.en].join(' ').toLowerCase().includes(q));
-  });
-  const c=document.getElementById('gC');if(c)c.textContent=`${arr.length} موضوع من أصل ${all.length}`;
-  document.getElementById('gR').innerHTML=arr.map((k,i)=>grCard(k,i)).join('')||'<div class="empty">لا توجد نتيجة.</div>';
+  const unitN=(u==='all')?null:Number(u);
+  const L=grList(unitN,q);
+  const c=document.getElementById('gC');if(c)c.textContent=`${L.total} موضوع`;
+  const r=document.getElementById('gR');if(r)r.innerHTML=grammarBlockHtml(unitN,q);
 }
 
 // ── EXERCISES ALL ──
@@ -2906,9 +3474,9 @@ function rEx(){
   let all=[];
   UNITS_ALL.forEach(u=>{
     if(un!=='all'&&String(u.n)!==un)return;
-    (u.exercises||[]).forEach(e=>{
+    (u.exercises||[]).forEach((e,idx)=>{
       if(!q||[e.h||'',e.txt,e.les].join(' ').toLowerCase().includes(q))
-        all.push({...e,uN:u.n,uAr:u.ar});
+        all.push({...e,uN:u.n,uAr:u.ar,idx:idx});
     });
   });
   const c=document.getElementById('eC');if(c)c.textContent=`${all.length} تمريناً`;
@@ -2918,7 +3486,7 @@ function rEx(){
   document.getElementById('eR').innerHTML=[...gr.values()].map((g,i)=>`
     <div class="exgroup fu" style="animation-delay:${i*.04}s">
       <div class="exhead"><b>Unit ${g.uN} · ${esc(g.uAr)}</b><span class="expill">${g.items.length} تمرين</span></div>
-      ${g.items.map(b=>exCard(b)).join('')}
+      ${g.items.map(b=>exCard(b)+exMarkHtml(b.uN+'-'+b.idx)).join('')}
     </div>`).join('');
 }
 
@@ -3120,24 +3688,26 @@ window.GRAMMAR_REFERENCE_111 = {"meta":{"title":"ملزمة القواعد","sub
     <div class="g11-answer" hidden></div>
    </article>`;
  }
- function renderGrammar111(){
-   const pb=document.getElementById('pb'); if(!pb)return;
+ function renderGrammar111(opts){
+   const opt=opts||{};
+   const pb=opt.mount||document.getElementById('pb'); if(!pb)return;
+   const locked=opt.unit?String(opt.unit):null;
    const units=DATA.meta.units;
    const flat=DATA.topics.flatMap(t=>(t.exercises||[]).map(ex=>({...ex,_topic:t})));
-   let state={unit:'1',topic:1,index:0,tab:'practice'};
+   let state={unit:locked||'1',topic:Number(opt.topic)||1,index:0,tab:opt.tab||'practice'};
    const totalForUnit=id=>flat.filter(x=>String(x._topic.unit)===String(id)).length;
    const topicById=id=>DATA.topics.find(t=>t.id===Number(id));
    const escText=s=>esc11(s);
-   pb.innerHTML=`<div class="g11-app" dir="rtl">
+    pb.innerHTML=`<div class="g11-app${locked?' g11-embedded':''}" dir="rtl">
      <header class="g11-apphead"><div class="g11-appbrand">📐 <span>ملزمة القواعد</span></div><div class="g11-appsub">الصف السادس الإعدادي · 2027</div></header>
-     <div class="g11-unitstrip" id="g11-unitstrip">${units.map(u=>`<button class="g11-unitpill${u.id===1?' active':''}" data-unit="${u.id}">${esc11(u.ar)}</button>`).join('')}</div>
+     ${locked?'':`<div class="g11-unitstrip" id="g11-unitstrip">${units.map(u=>`<button class="g11-unitpill${u.id===1?' active':''}" data-unit="${u.id}">${esc11(u.ar)}</button>`).join('')}</div>`}
      <div class="g11-selectors"><label>الموضوع<select id="g11-topicselect"></select></label><div class="g11-tabs"><button class="active" data-tab="practice">حل التمارين</button><button data-tab="rule">شرح القاعدة</button><button data-tab="extra">أنشطة إضافية</button></div></div>
      <div id="g11-screen"></div>
    </div>`;
-   const screen=document.getElementById('g11-screen'),topicSelect=document.getElementById('g11-topicselect');
+   const screen=pb.querySelector('#g11-screen'),topicSelect=pb.querySelector('#g11-topicselect');
    function unitTopics(){return DATA.topics.filter(t=>String(t.unit)===state.unit);}
    function getExercises(){const t=topicById(state.topic);return t?(t.exercises||[]):[];}
-   function setUnit(id){state.unit=String(id);const ts=unitTopics();state.topic=ts[0]?.id||0;state.index=0;topicSelect.innerHTML=ts.map(t=>`<option value="${t.id}">${esc11(t.ar)} · ${esc11(t.en)}</option>`).join('');topicSelect.value=String(state.topic);document.querySelectorAll('.g11-unitpill').forEach(b=>b.classList.toggle('active',b.dataset.unit===state.unit));render();}
+   function setUnit(id,topicId,tab){state.unit=String(id);const ts=unitTopics();state.topic=topicId?Number(topicId):(ts[0]?.id||0);state.index=0;if(tab)state.tab=tab;topicSelect.innerHTML=ts.map(t=>`<option value="${t.id}">${esc11(t.ar)} · ${esc11(t.en)}</option>`).join('');topicSelect.value=String(state.topic);pb.querySelectorAll('.g11-unitpill').forEach(b=>b.classList.toggle('active',b.dataset.unit===state.unit));render();}
    function renderQuestion(ex,t,idx,all){
      let pos=0,body='';
      (ex.slots||[]).forEach((slot,i)=>{body+=esc11(ex.text.slice(pos,slot.start));body+=`<input class="g11-gap" type="text" data-slot="${i}" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="الإجابة ${i+1}">`;if(slot.hint)body+=`<span class="g11-hint">(${esc11(slot.hint)})</span>`;pos=slot.end;});
@@ -3167,27 +3737,34 @@ window.GRAMMAR_REFERENCE_111 = {"meta":{"title":"ملزمة القواعد","sub
    }
    function render(){
      const t=topicById(state.topic);if(!t){screen.innerHTML='<p>لا توجد موضوعات في هذه الوحدة.</p>';return;}
-     document.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===state.tab));
-     if(state.tab==='rule'){screen.innerHTML=renderRule(t);document.getElementById('g11-gopractice')?.addEventListener('click',()=>{state.tab='practice';state.index=0;render();});return;}
+     pb.querySelectorAll('[data-tab]').forEach(b=>b.classList.toggle('active',b.dataset.tab===state.tab));
+     if(state.tab==='rule'){screen.innerHTML=renderRule(t);pb.querySelector('#g11-gopractice')?.addEventListener('click',()=>{state.tab='practice';state.index=0;render();});return;}
      if(state.tab==='extra'){screen.innerHTML=renderExtra(t);return;}
      const all=getExercises();
      if(!all.length){screen.innerHTML=`<div class="g11-empty">لا توجد تمارين تفاعلية مسجلة لهذا الموضوع في بيانات المصدر.</div>`;return;}
      state.index=Math.max(0,Math.min(state.index,all.length-1));
      const ex=all[state.index];screen.innerHTML=renderQuestion(ex,t,state.index,all);
-     document.getElementById('g11-check').addEventListener('click',()=>{
+     pb.querySelector('#g11-check').addEventListener('click',()=>{
        const inputs=[...screen.querySelectorAll('.g11-gap')],expected=(ex.slots||[]).length?ex.slots.map(s=>s.answer):[ex.answer];
        let right=0;inputs.forEach((el,i)=>{const ok=norm11(el.value)===norm11(expected[i]||'');el.classList.toggle('correct',ok);el.classList.toggle('wrong',!ok);el.setAttribute('aria-invalid',String(!ok));if(ok)right++;});
-       const v=document.getElementById('g11-verdict');v.className='g11-verdict '+(right===inputs.length?'ok':'bad');v.textContent=right===inputs.length?'إجابة صحيحة ✓':`إجابات صحيحة: ${right} من ${inputs.length}`;
+       const v=pb.querySelector('#g11-verdict');v.className='g11-verdict '+(right===inputs.length?'ok':'bad');v.textContent=right===inputs.length?'إجابة صحيحة ✓':`إجابات صحيحة: ${right} من ${inputs.length}`;
      });
-     document.getElementById('g11-show').addEventListener('click',()=>{const box=document.getElementById('g11-answer');box.hidden=false;box.textContent='الحل: '+(ex.answer||'');});
-     document.getElementById('g11-prev').addEventListener('click',()=>{state.index--;render();});
-     document.getElementById('g11-next').addEventListener('click',()=>{if(state.index<all.length-1){state.index++;render();}else{state.tab='rule';render();}});
+     pb.querySelector('#g11-show').addEventListener('click',()=>{const box=pb.querySelector('#g11-answer');box.hidden=false;box.textContent='الحل: '+(ex.answer||'');});
+     pb.querySelector('#g11-prev').addEventListener('click',()=>{state.index--;render();});
+     pb.querySelector('#g11-next').addEventListener('click',()=>{if(state.index<all.length-1){state.index++;render();}else{state.tab='rule';render();}});
    }
-   document.querySelectorAll('.g11-unitpill').forEach(b=>b.addEventListener('click',()=>setUnit(b.dataset.unit)));
+   pb.querySelectorAll('.g11-unitpill').forEach(b=>b.addEventListener('click',()=>setUnit(b.dataset.unit)));
    topicSelect.addEventListener('change',()=>{state.topic=Number(topicSelect.value);state.index=0;render();});
-   document.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{state.tab=b.dataset.tab;render();}));
-   setUnit('1');
+   pb.querySelectorAll('[data-tab]').forEach(b=>b.addEventListener('click',()=>{state.tab=b.dataset.tab;render();}));
+   window.__g11Go=function(unitId,topicId,tab){
+     if(locked&&String(unitId)!==locked)return false;
+     if(String(unitId)!==state.unit){setUnit(unitId,topicId,tab||'rule');}
+     else{state.topic=Number(topicId);state.index=0;state.tab=tab||'rule';topicSelect.value=String(state.topic);render();}
+     return true;
+   };
+   setUnit(locked||'1');
  }
+ window.__g11Render=renderGrammar111;
  const oldBuild=window._build;
  window._build=function(key){if(key==='grammar'){renderGrammar111();return;}return oldBuild.apply(this,arguments);};
 })();
